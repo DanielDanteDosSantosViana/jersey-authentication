@@ -15,14 +15,16 @@ public class User implements Principal {
 	private String endereco;
 	private String role;
 	private String senha;
+	private String id;
 	
-	public User(String nome,String telefone,String endereco,String email,String senha,String role){
+	public User(String nome,String telefone,String endereco,String email,String senha,String role,String id){
 		this.endereco = endereco;
 		this.nome = nome;
 		this.telefone = telefone;
 		this.senha = senha;
 		this.role = role;
 		this.email = email;
+		this.id =  id;
 	}
 
 	
@@ -80,5 +82,15 @@ public class User implements Principal {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

@@ -1,5 +1,7 @@
 package br.com.rest.auth.token;
 
+import java.util.Calendar;
+
 import br.com.rest.auth.domain.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
@@ -22,9 +24,12 @@ public class JwtUtil {
 	
 	}
 	public static String generatorToken(User user){
+		Calendar dataExpiracao = Calendar.getInstance();
+		dataExpiracao.add(Calendar.MINUTE, 3);
 		Claims claim = Jwts.claims().setSubject(user.getNome());
 		claim.put("email",user.getEmail());
 		claim.put("role", user.getRole());
+		claim.setExpiration(dataExpiracao.getTime());
 		return Jwts.builder().setClaims(claim).signWith(SignatureAlgorithm.HS512, SECRET).compact();
 	}
 }

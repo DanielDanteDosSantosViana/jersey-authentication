@@ -1,24 +1,24 @@
 package br.com.rest.auth.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.rest.auth.domain.User;
 
 public class UserDAO {
 	
-	private final static String SENHA = "1234";
-	static ArrayList<User> usuarios = new ArrayList<>();
+	private final static String PWD = "1234";
+	static List<User> users = new ArrayList<>();
 	
 	static{
-		usuarios.add(new User("Daniel","3598-9809","Rua DevMedia","danielvianarj@gmail.com",SENHA,"admin"));
-		usuarios.add(new User("Henrique","3598-9809","Rua DevMedia","danielvianarj@gmail.com",SENHA,"admin"));
-		usuarios.add(new User("Larissa","3598-9809","Rua DevMedia","danielvianarj@gmail.com",SENHA,"user"));
-		usuarios.add(new User("Java","3598-9809","Rua DevMedia","danielvianarj@gmail.com",SENHA,"admin"));
-		
-			
+		users.add(new User("Daniel","3598-9809","Rua DevMedia","danielvianarj@gmail.com",PWD,"admin","1"));
+		users.add(new User("Henrique","3598-9809","Rua DevMedia","danielvianarj@gmail.com",PWD,"admin","2"));
+		users.add(new User("Larissa","3598-9809","Rua DevMedia","danielvianarj@gmail.com",PWD,"user","3"));
+		users.add(new User("Java","3598-9809","Rua DevMedia","danielvianarj@gmail.com",PWD,"admin","4"));
 	}
+
 	public static User getUsuario(String senha, String nome){
-		for (User user : usuarios) {
+		for (User user : users) {
 			if(user.getNome().equals(nome) && user.getSenha().equals(senha)){
 				return user;
 			}
@@ -26,17 +26,17 @@ public class UserDAO {
 		return null;
 	}
 	
-	public static User getUsuarioByNome(String nome){
-		for (User user : usuarios) {
-			if(user.getNome().equals(nome)){
+	public static User getUserById(String id){
+		for (User user : users) {
+			if(id.equals(user.getId())){
 				return user;
 			}
 		}
 		return null;
 	}
 	
-	public static ArrayList<User> getUsuarios(){
-		return usuarios;
+	public static List<User> getUsers(){
+		return users;
 	}	
 
 }
