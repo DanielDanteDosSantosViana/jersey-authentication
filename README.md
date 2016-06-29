@@ -1,4 +1,4 @@
 # jersey-authentication
-Projeto de Autenticação por Token utilizando Jersey
+Exemplo de Autenticação por Token utilizando Jersey
 
 # Autenticação com Jersey+Jwt
